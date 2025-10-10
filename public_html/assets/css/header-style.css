@@ -1,0 +1,191 @@
+/* ===========================
+   HEADER & NAVBAR (PRIORITAIRE)
+=========================== */
+
+
+#header {
+    background: rgba(0,0,0,.9);
+    transition: all 0.5s;
+    z-index: 997;
+    padding: 20px 0;
+}
+
+#header .logo {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0;
+}
+
+#header .logo a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Navbar générale */
+.navbar {
+    padding: 0;
+    position: relative;
+    z-index: 999;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar li {
+    position: relative;
+}
+
+.navbar > ul > li {
+    white-space: nowrap;
+    padding: 10px 0 10px 30px;
+}
+
+.navbar a, .navbar a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff !important;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0;
+    white-space: nowrap;
+    transition: 0.3s;
+    letter-spacing: 0.4px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+/* Dropdown principal */
+.navbar .dropdown > ul {
+    display: block;
+    position: absolute;
+    left: 30px;
+    top: calc(100% + 30px);
+    margin: 0;
+    padding: 10px 0;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    box-shadow: 0 0 30px rgba(127,137,161,.25);
+    transition: all 0.3s ease;
+}
+
+.navbar .dropdown:hover > ul,
+.navbar .dropdown .dropdown-active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    top: 100% !important;
+}
+
+/* Dropdown secondaire */
+.navbar .dropdown .dropdown ul {
+    top: 0;
+    left: calc(100% - 30px);
+    visibility: hidden;
+}
+
+.navbar .dropdown .dropdown:hover > ul {
+    opacity: 1;
+    top: 0;
+    left: 100%;
+    visibility: visible;
+}
+
+/* Liens dropdown */
+.navbar .dropdown ul li {
+    min-width: 200px;
+}
+
+.navbar .dropdown ul a {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #4e4e4e !important;
+}
+
+.navbar .dropdown ul a:hover,
+.navbar .dropdown ul li:hover > a {
+    color: #20c0e8 !important;
+}
+
+/* MOBILE NAVIGATION */
+@media (max-width: 768px) {
+
+    /* Toggle mobile visible */
+    .mobile-nav-toggle {
+        display: block;
+        color: #fff;
+        font-size: 28px;
+        cursor: pointer;
+        line-height: 0;
+        transition: 0.5s;
+    }
+
+    /* Navbar hide par défaut */
+    .navbar ul {
+        display: none !important;
+        flex-direction: column;
+    }
+
+    /* Navbar mobile active */
+    .navbar-mobile {
+        position: fixed;
+        top: 0; right: 0; left: 0; bottom: 0;
+        background: rgba(78,78,78,.95);
+        overflow: hidden;
+        z-index: 9999;
+        transition: all 0.3s ease;
+    }
+
+    .navbar-mobile ul {
+        display: block !important;
+        position: absolute;
+        top: 55px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        background: #fff;
+        padding: 10px 0;
+        overflow-y: auto;
+    }
+
+    .navbar-mobile > ul > li {
+        padding: 0;
+    }
+
+    .navbar-mobile a, .navbar-mobile a:focus {
+        padding: 10px 20px !important;
+        font-size: 15px;
+        color: #4e4e4e !important;
+    }
+
+    .navbar-mobile a:hover,
+    .navbar-mobile li:hover > a,
+    .navbar-mobile .active {
+        color: #20c0e8 !important;
+    }
+
+    /* Dropdown mobile */
+    .navbar-mobile .dropdown > ul {
+        display: none;
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        background: #fff !important;
+        box-shadow: none !important;
+        padding-left: 15px;
+        margin: 10px 20px;
+    }
+
+    .navbar-mobile .dropdown > .dropdown-active {
+        display: block !important;
+    }
+}
+

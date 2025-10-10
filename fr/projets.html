@@ -1,0 +1,642 @@
+<html lang="fr">
+
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Mohamedene ETHMANOU">
+        <meta name="robots" content="index">
+        <title>Mohamedene ETHMANOU - Mes Projets</title>
+        <meta name="description" content="Voici tous mes projets en développement web, programmation, système informatique et réseau ainsi que des projets en hacking éthique">
+        <!-- Favicons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+        <link rel="manifest" href="favicon/site.webmanifest">
+        <!-- CSS Vendor -->
+        <!-- CSS Vendor (tous en local) -->
+        <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../assets/vendor/bootstrap-icons-1/bootstrap-icons.css" rel="stylesheet">
+        <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        <link href="../assets/vendor/fontawesome/css/all.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
+        <!-- Fichier CSS de Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Fichier JavaScript de Bootstrap (inclut Popper.js) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- CSS Main -->
+        <link href="../assets/css/test.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       
+        <style>
+            body {
+                background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+                color: #f5f5f5;
+                font-family: 'Poppins', sans-serif;
+            }
+
+            #projets {
+                padding: 60px 0;
+            }
+
+            .title-box h3.title-a, .title-box p.subtitle-a {
+                color: #ffffff;
+            }
+
+            .work-box {
+                background-color: rgba(255, 255, 255, 0.05);
+                border-radius: 12px;
+                padding: 15px;
+                margin-bottom: 30px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .work-box:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            }
+
+            .work-img img {
+                border-radius: 12px;
+                transition: transform 0.3s ease;
+            }
+
+            .work-img img:hover {
+                transform: scale(1.05);
+            }
+
+            .w-title {
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: #00bfff;
+            }
+
+            .w-more span {
+                font-weight: bold;
+                color: #ffce00;
+            }
+
+            p, ul li {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+
+            .btn-grad {
+                background: linear-gradient(135deg, #00bfff, #0056b3);
+                color: white;
+                padding: 10px 25px;
+                border-radius: 25px;
+                font-weight: bold;
+                transition: all 0.3s ease;
+                text-decoration: none;
+            }
+
+            .btn-grad:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            }
+        </style>
+    </head>
+
+
+
+<body>
+
+<header id="header" class="fixed-top">
+  <div class="container d-flex align-items-center justify-content-between">
+    <h2 class="logo">
+      <a href="index.html" rel="canonical">
+        <img src="../opscenter/img/logo.png" alt="Logo" class="logo">
+      </a>
+    </h2>
+
+    <div class="header-right d-flex align-items-center">
+
+
+     <div class="header-right">
+      <!-- Language switch -->
+      <div id="language-switch">
+        <a href="projets.html" class="lang-btn">FR</a>
+        <span>|</span>
+        <a href="../en/projets.html" class="lang-btn">EN</a>
+      </div>
+
+
+
+    <!-- Navbar alt -->
+    <nav id="navbar-alt">
+      <div class="alt-nav-header">
+        <span class="alt-nav-toggle"><i class="fas fa-bars"></i></span>
+      </div>
+      <ul class="alt-nav-list">
+        <li><a href="#projet-waf" class="nav-link scrollto">WAF(ModSecurity)</a></li>
+        <li><a href="#projet-ad" class="nav-link scrollto">Active Directory</a></li>
+        <li><a href="#projet-reseau" class="nav-link scrollto">Migration & Sécurisation Réseau</a></li>
+        <li><a href="#projet-programmation-C" class="nav-link scrollto">mini-jeu, IA, Optimisation</a></li>
+        <li><a href="#projet-Fullstack" class="nav-link scrollto">Projet FULLSTACK - Belote</a></li>
+        <li><a href="#projet-Machine-Learning" class="nav-link scrollto">Machine Learning - Python</a></li>
+        <li><a href="#projet-programmation-C-IA" class="nav-link scrollto">Morpion avec IA - C</a></li>
+        <li><a href="#projet-IOT" class="nav-link scrollto">IOT & Sécurité</a></li>
+        <li><a href="#projet-Réseau-Sécurité" class="nav-link scrollto">Réseau & Sécurité des protocoles</a></li>
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</header>
+
+
+
+
+        <section id="projets" class="portfolio-mf sect-pt4 route">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="title-box text-center">
+                            <h3 class="title-a"><span style="visibility: hidden;">xxxxxx</span> <!-- texte invisible -->
+                            </h3>
+                            <h3 class="title-a">Mes Projets</h3>
+                            <p class="subtitle-a" style="color: white; font-size: 26px;">Voici mes projets les plus récents.</p>
+                            <div class="line-mf"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Exemple de projet -->
+                    <div id ="projet-waf" class="col-md-4">
+                        <div class="work-box">
+                            <div class="work-img">
+                                <img src="../opscenter/img/waf.png" alt="WAF ModSecurity - bouclier numérique" class="img-fluid">
+                            </div>
+                            <div class="work-content">
+                                <h2 class="w-title">WAF (ModSecurity)</h2>
+                                <div class="w-more">
+                                    <span class="w-ctegory">Sécurité Applicative</span>
+                                    / <span class="w-date">02/2025</span>
+                                </div>
+                                <h4 style="color: white;">Objectifs</h4>
+                                <p>Protéger les applications web exposées contre les attaques courantes (injections, XSS, CSRF) tout en minimisant les faux positifs et l'impact sur la latence.</p>
+                                <h4 style="color: white;">Actions détaillées</h4>
+                                <ul>
+                                    <li>
+                                        <strong>Architecture :</strong>
+                                        Déploiement de ModSecurity en reverse-proxy (Docker) devant plusieurs backends applicatifs ; intégration à la chaîne CI pour tests automatisés.
+                                    </li>
+                                    <li>
+                                        <strong>Règles :</strong>
+                                        Activation OWASP CRS comme socle, puis règles personnalisées pour cas métier (exclusions sur endpoints upload, règles fines pour API REST).
+                                    </li>
+                                    <li>
+                                        <strong>Tuning :</strong>
+                                        collecte et analyse des logs sur 2 semaines en environnement staging, création de whitelist/exception et bascule progressive en mode blocking.
+                                    </li>
+                                    <li>
+                                        <strong>Monitoring :</strong>
+                                        centralisation logs via Filebeat → ELK / Grafana pour corrélation alertes / métriques (requests/block, taux faux positifs).
+                                    </li>
+                                    <li>
+                                        <strong>Tests &amp;validation :</strong>
+                                        campagne de tests en boîte noire sur staging (scénarios de validation, non-exhaustifs) + tests de montée en charge pour mesurer l'impact sur la latence.
+                                    </li>
+                                </ul>
+                                <h4 style="color: white;">Résultats &amp;indicateurs</h4>
+                                <ul>
+                                    <li>Blocage confirmé d’injections et de séquences XSS sur l’environnement de test.</li>
+                                    <li>Réduction progressive des faux positifs après tuning et mise en place d’exceptions ciblées.</li>
+                                    <li>Mise en place d’un dashboard opérationnel montrant requêtes traitées, taux de détention et latence moyenne.</li>
+                                </ul>
+                                <h4 style="color: white;">Compétences &amp;outils acquis</h4>
+                                <p>ModSecurity (mode reverse-proxy &amp;intégré), OWASP CRS tuning, parsing et corrélation de logs (ELK/Grafana), tests applicatifs et validation, culture DevOps (déploiement conteneurisé).</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id = "projet-ad" class="col-md-4">
+                        <div class="work-box">
+                            <div class="work-img">
+                                <img src="../opscenter/img/ad.png" alt="Active Directory sécurisé - arborescence" class="img-fluid">
+                            </div>
+                            <div class="work-content">
+                                <h2 class="w-title">Sécurisation d’Active Directory</h2>
+                                <div class="w-more">
+                                    <span class="w-ctegory">IAM &amp;Systèmes</span>
+                                    / <span class="w-date">11/2024</span>
+                                </div>
+                                <h4 class="mt-2">Objectifs</h4>
+                                <p>Durcir l'infrastructure AD pour réduire la surface d'attaque liée à la gestion des identités et sécuriser les accès administratifs.</p>
+                                <h4 style="color: white;">Actions détaillées</h4>
+                                <ul>
+                                    <li>
+                                        <strong>Design OU :</strong>
+                                        définition d’une arborescence claire (OU par service/environnement) pour faciliter GPO ciblées et délégation minimale des privilèges.
+                                    </li>
+                                    <li>
+                                        <strong>GPO et durcissement :</strong>
+                                        création de GPO standardisées : politique mot de passe (longueur &amp;complexité), verrouillage de compte, expiration, désactivation des comptes inactifs ; configuration de logs détaillés.
+                                    </li>
+                                    <li>
+                                        <strong>Gestion des privilèges :</strong>
+                                        séparation des comptes d’administration (Break-glass), principe du moindre privilège, délégation contrôlée via groupes et rôles.
+                                    </li>
+                                    <li>
+                                        <strong>MFA &amp;accès :</strong>
+                                        intégration d’un mécanisme MFA sur les accès sensibles ; revue des services s’appuyant sur comptes de service.
+                                    </li>
+                                    <li>
+                                        <strong>Surveillance :</strong>
+                                        centralisation des logs via Windows Event Forwarding → SIEM (correlation d’événements, alerting sur comportements suspects).
+                                    </li>
+                                    <li>
+                                        <strong>Process :</strong>
+                                        mise en place d’un processus de patching et d’un playbook de réponse à incident lié à la compromission d’AD.
+                                    </li>
+                                </ul>
+                                <h4 style="color: white;">Résultats &amp;indicateurs</h4>
+                                <ul>
+                                    <li>Amélioration de la gouvernance des accès : permissions documentées et audits réguliers.</li>
+                                    <li>Détection plus rapide d’anomalies via alertes SIEM sur événements AD critiques.</li>
+                                    <li>Procédures de rétablissement testées (restore d’objets AD, réinitialisation comptes critiques).</li>
+                                </ul>
+                                <h4 style="color: white;">Compétences &amp;outils acquis</h4>
+                                <p>Active Directory (AD DS), GPO design et durcissement, IAM, Windows Server administration, audit &amp;SIEM, procédures de gestion de patchs et playbook IR.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id ="projet-reseau" class="col-md-4">
+                        <div class="work-box">
+                            <div class="work-img">
+                                <img src="../opscenter/img/IOT.jpg" alt="Migration et sécurisation réseau - schéma" class="img-fluid">
+                            </div>
+                            <div class="work-content">
+                                <h2 class="w-title">Migration &amp;Sécurisation Réseau</h2>
+                                <div class="w-more">
+                                    <span class="w-ctegory">Réseaux &amp;Sécurité</span>
+                                    / <span class="w-date">09/2024</span>
+                                </div>
+                                <h4 class="mt-2" style="color: white;">Objectifs</h4>
+                                <p>
+                                    Refondre l’architecture réseau pour améliorer la disponibilité, la performance et la sécurité, tout en minimisant les interruptions, dans le cadre d’une préparation aux certificats <strong>CSNA</strong>
+                                    que j’ai obtenus avec succès. 
+                                </p>
+                                <h4 style="color: white;">Actions détaillées</h4>
+                                <ul>
+                                    <li>
+                                        <strong>Conception :</strong>
+                                        cartographie des flux, segmentation logique par VLANs (ex. VLAN management, VLAN production, VLAN DMZ), et définition des zones de confiance.
+                                    </li>
+                                    <li>
+                                        <strong>Sécurité périmétrique :</strong>
+                                        déploiement d’un pare-feu Stormshield en frontal avec politiques deny-by-default, règles explicites pour services exposés (HTTPS, SSH en management restreint).
+                                    </li>
+                                    <li>
+                                        <strong>Accès distants :</strong>
+                                        mise en place de VPN IPsec site-to-site et VPN utilisateurs (tunnels chiffrés, politique d'authentification forte, split-tunnel contrôlé).
+                                    </li>
+                                    <li>
+                                        <strong>Routage et haute disponibilité :</strong>
+                                        configuration d’OSPF pour routage dynamique entre sites et redondance des liens critiques ; implémentation d’ACL granulaires pour filtrer le trafic inter-VLAN.
+                                    </li>
+                                    <li>
+                                        <strong>Tests et bascule :</strong>
+                                        procédure de migration en phases (staging → rollback plan → production), tests de montée en charge et surveillance pendant cut-over.
+                                    </li>
+                                </ul>
+                                <h4 style="color: white;">Résultats &amp;indicateurs</h4>
+                                <ul>
+                                    <li>Réseau segmenté limitant la propagation latérale d’incidents.</li>
+                                    <li>Accès distants chiffrés et fiabilisés via VPN ; règles granulaires appliquées sur le pare-feu.</li>
+                                    <li>Processus de migration documenté et testé ; monitoring en place pour latence et disponibilité.</li>
+                                </ul>
+                                <h4 style="color: white;">Compétences &amp;outils acquis</h4>
+                                <p>
+                                    VLAN, OSPF, ACL design, VPN IPsec, administration Stormshield, conception d’architectures résilientes, procédure de migration et tests de validation, ainsi que la préparation et obtention du certificat <strong>CSNA</strong>
+                                    . 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div id="projet-programmation-C" class="work-box">
+                            <div class="work-img">
+                                <img src="../opscenter/img/PROB.png" alt="Mini-jeu C - IA" class="img-fluid">
+                            </div>
+                            <div class="work-content">
+                                <h2 class="w-title">Mini-jeu, IA, optimisation</h2>
+                                <div class="w-more">
+                                    <span class="w-ctegory">C / IA / Optimisation</span>
+                                    / <span class="w-date">07/2023 - 15 jours</span>
+                                </div>
+                                <h4 style="color: white;">Objectifs </h4>
+                                <p>Mini-jeu développé sur deux semaines, visant à résoudre le problème du voyageur de commerce et créer un jeu interactif avec IA.</p>
+                                <h4 style="color: white;">Actions détaillées</h4>
+                                <ul>
+                                    <li>
+                                        <strong>Semaine 1 :</strong>
+                                        Développement de méthodes d'optimisation pour le problème du voyageur de commerce, implémentation d'algorithmes comme Dijkstra.
+                                    </li>
+                                    <li>
+                                        <strong>Semaine 2 :</strong>
+                                        Création du mini-jeu en C avec interface graphique SDL2, intégration de l'intelligence artificielle via threads.
+                                    </li>
+                                    <li>
+                                        <strong>IA :</strong>
+                                        Conception d'un "cerveau" pour permettre à l'IA de s'adapter et jouer efficacement dans toutes les situations du jeu.
+                                    </li>
+                                </ul>
+                                <h4 style="color: white;">Résultats &amp;indicateurs</h4>
+                                <ul>
+                                    <li>Mini-jeu fonctionnel avec IA capable de jouer et d'apprendre.</li>
+                                    <li>Optimisation réussie des algorithmes pour réduire le temps de calcul.</li>
+                                </ul>
+                                <h4 style="color: white;">Compétences &amp;outils acquis</h4>
+                                <p>C, SDL2, programmation multithread, optimisation algorithmique, intelligence artificielle simple.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="projet-Fullstack" class="col-md-4">
+                        <div class="work-box">
+                            <div class="work-img">
+                                <img src="../opscenter/img/BEL.png" alt="Jeu de Belote Fullstack" class="img-fluid">
+                            </div>
+                            <div class="work-content">
+                                <h2 class="w-title">Projet FULLSTACK - Belote</h2>
+                                <div class="w-more">
+                                    <span class="w-ctegory">Fullstack / Angular / Colyseus</span>
+                                    / <span class="w-date">10/2023 - 15 jours</span>
+                                </div>
+                                <h4 style="color: white;">Objectifs</h4>
+                                <p>Créer un jeu de Belote en ligne avec gestion utilisateurs et communication en temps réel.</p>
+                                <h4 style="color: white;">Actions détaillées</h4>
+                                <ul>
+                                    <li>
+                                        <strong>Frontend :</strong>
+                                        Angular (TypeScript) pour interface interactive.
+                                    </li>
+                                    <li>
+                                        <strong>Backend :</strong>
+                                        Colyseus (JavaScript) pour la gestion des salles de jeu en temps réel.
+                                    </li>
+                                    <li>
+                                        <strong>Fonctionnalités :</strong>
+                                        gestion des comptes, suivi de progression, chat en temps réel.
+                                    </li>
+                                    <li>
+                                        <strong>Organisation :</strong>
+                                        Projet réalisé en équipe de trois, j'ai participé à backend et frontend.
+                                    </li>
+                                </ul>
+                                <h4 style="color: white;">Résultats &amp;indicateurs</h4>
+                                <ul>
+                                    <li>Jeu en ligne fonctionnel avec expérience utilisateur fluide.</li>
+                                    <li>Backend capable de gérer plusieurs parties simultanément.</li>
+                                </ul>
+                                <h4 style="color: white;">Compétences &amp;outils acquis</h4>
+                                <p>Angular, Colyseus, HTML/CSS, Fullstack, développement temps réel, gestion de projets en équipe.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="projet-Machine-Learning" class="col-md-4">
+                        <div class="work-box">
+                            <div class="work-img">
+                                <img src="../opscenter/img/ML.png" alt="Projet Python ML" class="img-fluid">
+                            </div>
+                            <div class="work-content">
+                                <h2 class="w-title">Projet Python - Machine Learning</h2>
+                                <div class="w-more">
+                                    <span class="w-ctegory">Python / ML</span>
+                                    / <span class="w-date">08/2021</span>
+                                </div>
+                                <h4 style="color: white;">Objectifs</h4>
+                                <p>Développer un programme Python utilisant le Machine Learning pour compléter des données manquantes et prédire la probabilité de présence des passagers du Titanic.</p>
+                                <h4 style="color: white;">Actions détaillées</h4>
+                                <ul>
+                                    <li>Préparation des données : nettoyage et traitement des valeurs manquantes.</li>
+                                    <li>Entraînement du modèle sur un tiers de la base de données.</li>
+                                    <li>Prédiction sur le reste des données et évaluation de la performance.</li>
+                                </ul>
+                                <h4 style="color: white;">Résultats &amp;indicateurs</h4>
+                                <ul>
+                                    <li>Modèle capable de compléter les données et de prédire avec précision les variables cibles.</li>
+                                    <li>Approche robuste combinant traitement de données et relations complexes entre variables.</li>
+                                </ul>
+                                <h4 style="color: white;">Compétences &amp;outils acquis</h4>
+                                <p>Python, Pandas, NumPy, scikit-learn, Machine Learning supervisé, traitement de données, modélisation prédictive.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="projet-programmation-C-IA" class="col-md-4">
+                        <div class="work-box">
+                            <div class="work-img">
+                                <img src="../opscenter/img/MOR.jpg" alt="Morpion C - IA" class="img-fluid">
+                            </div>
+                            <div class="work-content">
+                                <h2 class="w-title">Morpion (C) avec IA</h2>
+                                <div class="w-more">
+                                    <span class="w-ctegory">C / IA / SDL2</span>
+                                    / <span class="w-date">08/2023 - 1 mois</span>
+                                </div>
+                                <h4 style="color: white;">Objectifs</h4>
+                                <p>Développer un jeu de morpion en C avec version humaine et IA entraînée via threads.</p>
+                                <h4 style="color: white;">Actions détaillées</h4>
+                                <ul>
+                                    <li>Création de deux modes : joueur vs joueur et joueur vs IA.</li>
+                                    <li>Implémentation d'une interface graphique avec SDL2.</li>
+                                    <li>Entraînement de l'IA avec règles définies et optimisation des performances via threads.</li>
+                                    <li>Tests et validation pour garantir la performance du jeu.</li>
+                                </ul>
+                                <h4 style="color: white;">Résultats &amp;indicateurs</h4>
+                                <ul>
+                                    <li>Jeu interactif avec IA capable de s'adapter.</li>
+                                    <li>Interface SDL2 fluide et fonctionnelle.</li>
+                                </ul>
+                                <h4 style="color: white;">Compétences &amp;outils acquis</h4>
+                                <p>C, SDL2, multithreading, IA, optimisation des performances, conception de jeux simples.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="projet-IOT" class="col-md-4">
+                        <div class="work-box">
+                            <div class="work-img">
+                                <img src="../opscenter/img/ZEN5-A.jpg" alt="Projet IoT" class="img-fluid">
+                            </div>
+                            <div class="work-content">
+                                <h2 class="w-title">Projets IoT &amp;Sécurité</h2>
+                                <div class="w-more">
+                                    <span class="w-ctegory">IoT / Sécurité</span>
+                                    / <span class="w-date">2023 - 4h</span>
+                                </div>
+                                <h4 style="color: white;">Objectifs</h4>
+                                <p>Configurer un broker Mosquitto sécurisé et réaliser des challenges en sécurité réseau.</p>
+                                <h4 style="color: white;">Actions détaillées</h4>
+                                <ul>
+                                    <li>Configuration du broker Mosquitto et contrôle d'accès via ACL.</li>
+                                    <li>Réalisation de deux challenges de 2 heures chacun avec tcpdump pour analyse et sécurisation.</li>
+                                    <li>Filtrage et décryptage des trames pour renforcer la sécurité du réseau.</li>
+                                </ul>
+                                <h4 style="color: white;">Résultats &amp;indicateurs</h4>
+                                <ul>
+                                    <li>Broker sécurisé et challenges réussis (4/6 et 3/6).</li>
+                                    <li>Compréhension pratique des vulnérabilités IoT et mesures de sécurité.</li>
+                                </ul>
+                                <h4 style="color: white;">Compétences &amp;outils acquis</h4>
+                                <p>IoT, Mosquitto, ACL, tcpdump, sécurisation réseau, analyse de paquets.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="projet-Réseau-Sécurité" class="col-md-4">
+                        <div class="work-box">
+                            <div class="work-img">
+                                <img src="../opscenter/img/APP.png" alt="Réseau et Sécurité" class="img-fluid">
+                            </div>
+                            <div class="work-content">
+                                <h2 class="w-title">Projet Réseau et Sécurité des protocoles</h2>
+                                <div class="w-more">
+                                    <span class="w-ctegory">Réseau / Sécurité / Java</span>
+                                    / <span class="w-date">En cours</span>
+                                </div>
+                                <h4 style="color: white;">Objectifs</h4>
+                                <p>Développer un programme Java pour sécuriser les communications réseau et prévenir la fin d’un appel sans consentement mutuel.</p>
+                                <h4 style="color: white;">Actions détaillées</h4>
+                                <ul>
+                                    <li>Utilisation de Java et Socket.IO pour les connexions réseau.</li>
+                                    <li>Intégration de Ngrok pour un canal sécurisé.</li>
+                                    <li>Surveillance réseau avec Nagios et sécurité des protocoles TCP/IP et SSL/TLS.</li>
+                                </ul>
+                                <h4 style="color: white;">Résultats &amp;indicateurs</h4>
+                                <ul>
+                                    <li>Programme capable de sécuriser les échanges réseau en temps réel.</li>
+                                    <li>Mise en place d’un monitoring efficace et sécurisé.</li>
+                                </ul>
+                                <h4 style="color: white;">Compétences &amp;outils acquis</h4>
+                                <p>Java, Socket.IO, Ngrok, TCP/IP, SSL/TLS, sécurité réseau, supervision Nagios.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tu peux dupliquer ces blocs pour tes autres projets -->
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </section>
+
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="copyright-box">
+                            <p class="copyright">
+                                © Copyright <strong>Mohamedene ETHMANOU</strong>
+                                . Tous droits réservés
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center active">
+            <i class="bi bi-arrow-up-short"></i>
+        </a>
+
+        <!-- Scripts Vendor -->
+        <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+        <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="../assets/vendor/typed.js/typed.min.js"></script>
+        <!-- Script Principal -->
+        <script src="../assets/js/main.js" type="2077f1266468b513c07b5de1-text/javascript"></script>
+
+<script>
+  const toggle = document.querySelector('.mobile-nav-toggle');
+  const navbar = document.getElementById('navbar');
+  const navLinks = navbar.querySelectorAll('a'); // tous les liens du menu
+
+  // Ouvrir / fermer le menu quand on clique sur le bouton
+  toggle.addEventListener('click', () => {
+    navbar.classList.toggle('navbar-mobile');
+  });
+
+  // Fermer le menu quand on clique sur un lien
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navbar.classList.remove('navbar-mobile');
+    });
+  });
+</script>
+
+<script>
+// Back to top button
+let backtotop = document.querySelector('.back-to-top');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) {
+    backtotop.classList.add('active');
+  } else {
+    backtotop.classList.remove('active');
+  }
+});
+
+backtotop.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+</script>
+
+<script>document.querySelectorAll('.scrollto').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').split('#')[1];
+    const target = document.getElementById(targetId);
+    if(target){
+      window.scrollTo({
+        top: target.offsetTop - 60, // ajuster selon la hauteur de la navbar
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.querySelector(".alt-nav-toggle");
+    const navbar = document.getElementById("navbar-alt");
+
+    if (!toggle || !navbar) return;
+
+    toggle.addEventListener("click", () => {
+      navbar.classList.toggle("active"); // active ouvre/ferme le menu
+      toggle.classList.toggle("active");
+    });
+
+    navbar.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navbar.classList.remove("active");
+        toggle.classList.remove("active");
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

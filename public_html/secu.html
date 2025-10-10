@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var codeBlocks = document.querySelectorAll('pre code');
+
+            codeBlocks.forEach(function (codeBlock) {
+                // Créer un bouton "Copier"
+                //var copyButton = document.createElement('button');
+                //copyButton.className = 'copy-button';
+                //copyButton.textContent = 'Copier';
+                //codeBlock.parentNode.insertBefore(copyButton, codeBlock);
+
+                // Gérer l'événement clic du bouton "Copier"
+                //copyButton.addEventListener('click', function () {
+                //    copyToClipboard(codeBlock.textContent);
+                //});
+            });
+
+            function copyToClipboard(text) {
+                var textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+
+                alert('Copié avec succès!');
+            }
+        });
+    </script>
+	
+    <title>TP Sécurisation Active de Systèmes en Réseau - DNS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        code {
+            display: block;
+            background-color: #00000;
+            padding: 10px;
+            overflow-x: auto;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+		.copy-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #4caf50;
+            color: #000;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .copy-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+	
+
+	
+	
+</head>
+<body>
+
+<h1>TP Sécurisation Active de Systèmes en Réseau - DNS</h1>
+
+<h2>I - Test de Différents Types de Requêtes</h2>
+
+<h3>A) Tests avec les Outils en Ligne</h3>
+
+<p>1. Requête via <a href="https://toolbox.googleapps.com/apps/dig/" target="_blank">Google Dig</a>:</p>
+<pre><code>dig @8.8.8.8 example.com</code></pre>
+<p>- Analysez le résultat.</p>
+
+<p>2. Requête via <a href="http://www.digwebinterface.com/" target="_blank">Dig Web Interface</a> (cochez « no recursive »):</p>
+<pre><code>dig +norecurse @8.8.8.8 example.com</code></pre>
+<p>- Analysez le résultat.</p>
+
+<p>3. Recherche de adresse IP de www.google.fr:</p>
+<pre><code class="copyable">dig @8.8.8.8 www.google.fr</code></pre>
+<p>- Analysez le résultat.</p>
+
+<h3>B Tests avec Dig sur Votre Machine</h3>
+
+<p>1. Résolution de nom de google.com:</p>
+<pre><code class="copyable">dig @8.8.8.8 google.com</code></pre>
+<p>- Analysez le résultat avec Wireshark.</p>
+
+<!-- Ajoutez des autres sections de manière similaire -->
+
+
+
+<!-- Continuez de la même manière pour les autres sections -->
+
+<h2>II - Installation d’un Serveur DNS</h2>
+
+<h3>Installation de Bind9:</h3>
+<pre><code class="copyable">sudo apt-get install bind9</code></pre>
+
+<h3>Vérification du Démarrage de Bind9:</h3>
+<pre><code class="copyable">sudo systemctl status bind9</code></pre>
+
+<h3>Sur quel port écoute-t-il?</h3>
+<pre><code class="copyable">netstat -tuln | grep named</code></pre>
+
+<h3>Vérification du Dossier /etc/bind:</h3>
+<pre><code class="copyable">ls /etc/bind</code></pre>
+
+<h3>Liste des zones dans named.conf:</h3>
+<pre><code class="copyable">cat /etc/bind/named.conf | grep "zone"</code></pre>
+
+<h3>Contenu de db.local:</h3>
+<pre><code class="copyable">cat /etc/bind/db.local</code></pre>
+
+<!-- Continuez de la même manière pour les autres sections -->
+
+<!-- Continuez de la même manière pour les autres sections -->
+
+<h2>III – Configuration d’un Serveur Primaire</h2>
+
+<h3>A) Création d'une Nouvelle Zone</h3>
+
+<p>Déclaration de la nouvelle zone:</p>
+<pre><code class="copyable">nano /etc/bind/named.conf.local</code></pre>
+<p>Ajoutez:</p>
+<pre><code class="copyable">zone "secu.sys" {
+    type master;
+    file "/etc/bind/db.secu";
+};</code></pre>
+
+<p>Création des ressources:</p>
+<pre><code class="copyable">nano /etc/bind/db.secu</code></pre>
+<p>Ajoutez:</p>
+<pre><code class="copyable">$TTL 86400
+@       IN      SOA     ns1.secu.sys. hostmaster.secu.sys. (
+            2024011801 ; Serial
+            3600       ; Refresh
+            1800       ; Retry
+            604800     ; Expire
+            86400 )    ; Minimum TTL
+
+@       IN      NS      ns1.secu.sys.
+@       IN      NS      ns2.secu.sys.
+@       IN      A       192.168.0.1
+ns1     IN      A       192.168.0.1
+ns2     IN      A       192.168.0.2
+client  IN      A       192.168.0.3
+mail    IN      A       192.168.0.4
+pop     IN      CNAME   mail.secu.sys.
+imap    IN      CNAME   mail.secu.sys.
+smtp    IN      CNAME   mail.secu.sys.</code></pre>
+
+<p>Vérification et redémarrage:</p>
+<pre><code class="copyable">named-checkconf
+named-checkzone secu.sys /etc/bind/db.secu
+sudo systemctl restart bind9</code></pre>
+
+<h2>IV – Configuration du Client</h2>
+
+<p>Configuration du serveur DNS sur le client:</p>
+<p>Modifiez /etc/resolv.conf et ajoutez:</p>
+<pre><code class="copyable">nameserver 192.168.0.1</code></pre>
+
+<p>Ping sur client.secu.sys:</p>
+<pre><code class="copyable">ping client.secu.sys</code></pre>
+<p>Analysez les échanges avec Wireshark.</p>
+
+<h2>V – Configuration d'un Serveur Secondaire et Transfert Sécurisé</h2>
+
+<p>Installation de bind9 sur ns2:</p>
+<pre><code class="copyable">sudo apt-get install bind9</code></pre>
+
+<p>Création de la zone secu.sys sur le serveur secondaire:</p>
+<pre><code class="copyable">nano /etc/bind/named.conf.local</code></pre>
+<p>Ajoutez:</p>
+<pre><code class="copyable">zone "secu.sys" {
+    type slave;
+    masters { 192.168.0.1; };
+    file "/etc/bind/db.secu";
+};</code></pre>
+
+<p>Test du transfert:</p>
+<pre><code class="copyable">sudo systemctl restart bind9</code></pre>
+<p>Utilisez Wireshark pour observer les échanges.</p>
+
+<p>Génération de la clé TSIG sur ns1:</p>
+<pre><code class="copyable">tsig-keygen -a HMAC-SHA256 ns1-ns2</code></pre>
+<p>Répondez aux questions.</p>
+
+<p>Configuration des serveurs avec la clé TSIG:</p>
+<pre><code class="copyable">nano /etc/bind/named.conf.local</code></pre>
+<p>Ajoutez sur ns1:</p>
+<pre><code class="copyable">key "tsig-key" {
+    algorithm hmac-sha256;
+    secret "votre_clé_secrète_ici";
+};</code></pre>
+
+<pre><code class="copyable">nano /etc/bind/named.conf.local (sur ns2)</code></pre>
+<p>Ajoutez sur ns2:</p>
+<pre><code class="copyable">key "tsig-key" {
+    algorithm hmac-sha256;
+    secret "votre_clé_secrète_ici";
+};</code></pre>
+
+<p>Test du transfert sécurisé:</p>
+<pre><code class="copyable">sudo systemctl restart bind9</code></pre>
+<p>Wireshark pour observer les échanges.</p>
+<pre><code class="copyable">dig @192.168.0.2 example.com</code></pre>
+
+<p>Modification de la configuration du client:</p>
+<p>Ajoutez nameserver 192.168.0.2 à /etc/resolv.conf.</p>
+
+<!-- Continuez de la même manière pour les autres sections -->
+
+<h2>V – Configurez un serveur secondaire et mettez en place un transfert sécurisé</h2>
+
+<h3>1. Quel est l’intérêt d’avoir un serveur DNS secondaire ?</h3>
+<p>Installez bind9 sur une deuxième machine virtuelle.</p>
+<pre><code class="copyable">sudo apt-get install bind9</code></pre>
+
+<p>Créez une zone secu.sys sur votre serveur secondaire et indiquez dans la définition de la zone que ce serveur est esclave et doit solliciter votre serveur primaire pour récupérer le contenu de la zone.</p>
+<pre><code class="copyable">nano /etc/bind/named.conf.local</code></pre>
+<pre><code class="copyable">zone "secu.sys" { type slave; masters { IP_DU_SERVEUR_PRIMAIRE; }; file "/etc/bind/db.secu"; };</code></pre>
+
+<p>Testez le bon fonctionnement du transfert en redémarrant votre serveur secondaire. Ouvrez Wireshark et observez les échanges entre le serveur secondaire et le serveur primaire.</p>
+<pre><code class="copyable">sudo systemctl restart bind9</code></pre>
+
+<p>Testez les enregistrements sur le serveur secondaire à l'aide de la commande dig à destination de votre serveur secondaire.</p>
+<pre><code class="copyable">dig @IP_DU_SERVEUR_SECONDAIRE example.com</code></pre>
+
+<h3>2. Afin de sécuriser le transfert du contenu entre les serveurs vous allez vous servir d’une clé secrète symétrique.</h3>
+<p>Pour le transfert de zone entre ns1 et ns2 nous allons utiliser une clé TSIG.</p>
+<p>Qu'est-ce qu'une clé TSIG apporte au niveau sécurité ?</p>
+<p>Générez la clé TSIG sur NS1 à l'aide de la commande ci-dessous :</p>
+<pre><code class="copyable">tsig-keygen -a HMAC-SHA256 ns1-ns2</code></pre>
+<p>Indiquez à quoi correspond chaque argument et option de cette commande.</p>
+<p>Quels sont les algorithmes supportés par cette commande ? Lequel est le plus robuste ?</p>
+
+<h3>3. Modifiez la configuration des 2 serveurs pour effectuer un transfert sécurisé en utilisant votre clé TSIG.</h3>
+<p>Sur les 2 serveurs, vous allez déclarer la clé dans le fichier named.conf.local.</p>
+<p>Sur le serveur primaire, vous allez déclarer dans le fichier named.conf.local que pour contacter le serveur secondaire il faut utiliser la clé TSIG, et inversement sur le serveur secondaire.</p>
+<pre><code class="copyable">nano /etc/bind/named.conf.local (sur ns1)</code></pre>
+<pre><code class="copyable">key "tsig-key" { algorithm hmac-sha256; secret "votre_clé_secrète_ici"; };</code></pre>
+<pre><code class="copyable">nano /etc/bind/named.conf.local (sur ns2)</code></pre>
+<pre><code class="copyable">key "tsig-key" { algorithm hmac-sha256; secret "votre_clé_secrète_ici"; };</code></pre>
+
+<h3>4. Testez un transfert de zone sécurisé en redémarrant les deux serveurs et en observant les échanges avec Wireshark.</h3>
+<pre><code class="copyable">sudo systemctl restart bind9</code></pre>
+
+<h3>5. Testez les enregistrements sur ns2 à l'aide de la commande dig à destination de votre serveur secondaire.</h3>
+<pre><code class="copyable">dig @IP_DU_SERVEUR_SECONDAIRE example.com</code></pre>
+
+<h3>6. Modifiez la configuration du client pour ajouter NS2 comme serveur DNS par défaut et vérifiez que votre configuration est bonne en arrêtant le serveur primaire.</h3>
+<p>Analysez avec Wireshark les échanges entre les deux serveurs.</p>
+<p>Notez la durée de vie des ressources reçues en réponse quand vous faites la même requête plusieurs fois.</p>
+
+
+
+<h2>VI – Tests avec DNSSEC – </h2>
+
+<h3>1. Test sur www.dnsviz.net</h3>
+<p>Allez sur le site www.dnsviz.net et faites un test sur la zone « fr ». Analysez le résultat.</p>
+
+<p><strong>Commande :</strong></p>
+<pre><code class="copyable">dig +dnssec DNSKEY fr</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>La zone .fr dispose de plusieurs clés DNSKEY. Le nombre exact dépend du moment de la requête, mais en général, il y a plusieurs clés publiques.</p>
+
+<p><strong>Commande :</strong></p>
+<pre><code class="copyable">dig +dnssec DS fr</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>La clé KSK (Key Signing Key) peut être identifiée à l'aide de la commande ci-dessus. La clé ZSK (Zone Signing Key) n'est pas directement identifiable dans la réponse de la requête DNSKEY, mais elle peut être déterminée en analysant les méta-informations de la clé.</p>
+
+<p><strong>Commande :</strong></p>
+<pre><code class="copyable">dig +dnssec DNSKEY .</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>Non, toutes les clés de .fr ne sont pas vérifiées par un serveur root. Seules les clés KSK sont vérifiées par le serveur root.</p>
+
+<p><strong>Commande :</strong></p>
+<pre><code class="copyable">dig +dnssec DNSKEY bortzmeyer.fr</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>Effectuez la commande ci-dessus pour obtenir le nombre et le type de clés DNSKEY pour la zone bortzmeyer.fr et déterminez les clés KSK et ZSK.</p>
+
+<p><strong>Commande :</strong></p>
+<pre><code class="copyable">dig +dnssec DNSKEY sources.org</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>La commande ci-dessus vous fournira les clés DNSKEY pour la zone sources.org. Suivez la chaîne de signature en analysant les enregistrements RRSIG pour chaque clé.</p>
+
+<h3>2. Requêtes dig avec DNSSEC</h3>
+
+<p><strong>Commande :</strong></p>
+<pre><code class="copyable">dig SOA .</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>Effectuez la commande ci-dessus pour obtenir les informations SOA de la racine du DNS.</p>
+
+<p><strong>Commande :</strong></p>
+<pre><code class="copyable">dig +dnssec SOA .</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>La réponse contiendra également les enregistrements RRSIG pour la signature DNSSEC.</p>
+
+<p><strong>Commande :</strong></p>
+<pre><code class="copyable">dig +dnssec DNSKEY .</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>Cette commande fournira les clés DNSKEY pour la racine du DNS avec les enregistrements RRSIG associés.</p>
+
+<p><strong>Commande :</strong></p>
+<pre><code class="copyable">dig +multi +dnssec DNSKEY fr</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>Comparez cette réponse avec la commande précédente pour évaluer l'impact de l'option +multi.</p>
+
+<h3>3. Date d’expiration de la signature de la clé du domaine pm (Saint Pierre and Miquelon)</h3>
+
+<p><strong>Commande :</strong></p>
+<pre><code class="copyable">dig +dnssec DNSKEY pm</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>Analaysez les résultats pour trouver la date d'expiration dans les enregistrements RRSIG associés à la clé.</p>
+
+<h3>4. Requêtes sur des enregistrements délibérément invalides</h3>
+
+<p>Faites des requêtes sur les enregistrements délibérément invalides sur www.dnssec-tools.org/testzone.</p>
+
+<p><strong>Commande :</strong></p>
+<pre><code class="copyable">dig +dnssec www.dnssec-tools.org/testzone</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>Analysez les erreurs détectées par dnsviz sur le domaine test.dnssec-tools.org.</p>
+
+
+
+
+
+<h2>VII – Signature de zone – </h2>
+
+<h3>1. Génération des clés ZSK et KSK</h3>
+
+<p><strong>Commandes :</strong></p>
+<pre><code class="copyable">dnssec-keygen –a RSASHA256 –b 1024 –n ZONE secu.sys</code></pre>
+<pre><code class="copyable">dnssec-keygen –a RSASHA256 –f KSK –b 2048 –n ZONE secu.sys</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>Les deux commandes génèrent respectivement une clé ZSK (Zone Signing Key) et une clé KSK (Key Signing Key) pour la zone secu.sys. La clé KSK est une clé de signature de clé, utilisée pour signer la clé ZSK.</p>
+
+<p><strong>Option –r /dev/urandom :</strong></p>
+<p>L'option –r /dev/urandom permet d'utiliser le générateur de nombres aléatoires /dev/urandom pour améliorer l'entropie. Cela rend le processus de génération des clés plus sécurisé.</p>
+
+<h3>2. Intégration de la clé dans le fichier de zone</h3>
+
+<p><strong>Directive $INCLUDE :</strong></p>
+<p>Utilisez la directive $INCLUDE dans le fichier de zone (par exemple, db.secu) pour inclure le contenu des clés générées. Cela peut ressembler à quelque chose comme :</p>
+
+<pre><code class="copyable">$INCLUDE /chemin/vers/la/clé-ZSK
+$INCLUDE /chemin/vers/la/clé-KSK</code></pre>
+
+<h3>3. Signature de la zone</h3>
+
+<p><strong>Commande :</strong></p>
+<pre><code class="copyable">dnssec-signzone -o secu.sys -z db.secu</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>Cette commande signe la zone secu.sys avec les clés ZSK et KSK. Elle génère des enregistrements de signature RRSIG.</p>
+
+<h3>4. Test des signatures</h3>
+
+<p><strong>Commande :</strong></p>
+<pre><code class="copyable">dig +dnssec @localhost votre-nom-de-domaine</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>Vérifiez si les réponses aux requêtes DNS incluent des enregistrements de signature (RRSIG). Si non, assurez-vous que la configuration est correcte et que les clés sont correctement intégrées.</p>
+
+<h3>5. Signature avec NSEC3</h3>
+
+<p><strong>Commande :</strong></p>
+<pre><code class="copyable">dnssec-signzone -o secu.sys -N INCREMENT -z db.secu</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>La commande signe la zone avec NSEC3, une méthode d'inclusion des preuves de non-existence pour renforcer la sécurité.</p>
+
+<h3>6. Vérification avec l’option +multi</h3>
+
+<p><strong>Commande :</strong></p>
+<pre><code class="copyable">dig +multi +dnssec @localhost votre-nom-de-domaine</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>Comparez cette réponse avec celle de la commande précédente pour évaluer l'impact de l'option +multi sur les réponses DNSSEC.</p>
+
+
+<h2>VIII – Relais de zone –</h2>
+
+<h3>1. Configuration du serveur esclave en tant que relais</h3>
+
+<p><strong>Étape :</strong></p>
+<p>Remplacez la zone esclave par une zone de type forward sur le serveur esclave. Ajoutez l'IP du serveur primaire dans la liste des forwarders.</p>
+
+<p><strong>Fichier named.conf.local sur le serveur esclave :</strong></p>
+<pre><code class="copyable">zone "secu.sys" {
+    type forward;
+    forwarders { IP-du-serveur-primaire; };
+};</code></pre>
+
+<p>Si vous utilisez named.conf.options, ajoutez l'IP du serveur primaire dans la section forwarders.</p>
+
+<h3>2. Requêtes avec options +dnssec +multi sur le serveur relais</h3>
+
+<p><strong>Commande :</strong></p>
+<pre><code class="copyable">dig +dnssec +multi @IP-du-serveur-relais secu.sys</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>Analysez les flags de la réponse. Les flags AD (Authenticated Data) indiquent si la réponse est DNSSEC-validée. Si AD est défini à 1, cela signifie que la réponse est validée.</p>
+
+<p><strong>Option +ad :</strong></p>
+<p>Ajoutez l'option +ad à la commande pour forcer la validation DNSSEC.</p>
+<pre><code class="copyable">dig +ad @IP-du-serveur-relais secu.sys</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>Vérifiez si la réponse indique AD=1, confirmant la validation DNSSEC.</p>
+
+<p><strong>Validation avec trusted-keys :</strong></p>
+<p>Si la validation ne fonctionne pas, assurez-vous que le serveur relais dispose de la clé publique du serveur primaire. Utilisez la directive trusted-keys dans named.conf.local sur le serveur relais :</p>
+
+<pre><code class="copyable">trusted-keys {
+    "secu.sys." 257 3 13 <clé-KSK>;
+};</code></pre>
+
+<p><strong>Test avec la bonne clé :</strong></p>
+<pre><code class="copyable">dig +dnssec +multi @IP-du-serveur-relais secu.sys</code></pre>
+
+<p><strong>Réponse :</strong></p>
+<p>Assurez-vous que la réponse inclut AD=1 et que la validation DNSSEC fonctionne après avoir ajouté la bonne clé avec la directive trusted-keys.</p>
+
+<a>  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</a>
+<a>  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</a>
+<a>  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</a>
+<h1>  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;COURS  </h1>
+
+
+<h2>SNMP</h2>
+
+<p>Le SNMP (Simple Network Management Protocol) est un protocole de gestion à distance des équipements informatiques. Il a été normalisé par l'IETF (Internet Engineering Task Force) en 2004.</p>
+<p>Utilise les ports UDP 161 (côté agent) et 162 (côté manager).</p>
+<p>La MIB (Management Information Base) représente la base d'informations accessible par SNMP sur un équipement donné. Elle a une structure arborescente avec des Object Identifiers (OID), et l'OID d'IP est ".1.3.6.1.2.1.4".</p>
+
+<h2>SNMPv3</h2>
+
+<p>SNMPv3 introduit des mécanismes de sécurité avec deux modules principaux :</p>
+<ul>
+  <li>USM (User-based Security Model) qui assure la confidentialité, l'intégrité, l'authenticité, et la validité temporelle.</li>
+  <li>VACM (View-based Access Control Model) qui gère le contrôle d'accès avec trois niveaux de sécurité : NoAuthNoPriv, AuthNoPriv, AuthPriv.</li>
+</ul>
+
+<h2>Découverte d'agents</h2>
+
+<p>La découverte d'agents SNMP implique l'échange de clés secrètes entre le manager et l'agent pour l'authentification, utilisant EngineID pour identifier l'agent.</p>
+
+<h2>Algorithmes de cryptographie avec SNMPv3</h2>
+
+<p>SNMPv3 supporte différents algorithmes de hashage pour garantir l'intégrité, tels que MD5, SHA-1, et SHA-2. Pour la confidentialité, des algorithmes comme DES-CBC, 3DES, et AES sont utilisés.</p>
+
+<h2>Contrôle d'accès avec VACM</h2>
+
+<p>Le VACM (View-based Access Control Model) gère le contrôle d'accès avec des tables configurables à distance : contexte, groupe, accès, et vue.</p>
+<p>Les entités SNMP sont groupées dans un contexte (vacmContextName), et chaque utilisateur doit appartenir à un groupe. Les règles d'accès sont appliquées aux groupes d'utilisateurs.</p>
+
+<h2>Tables VACM</h2>
+
+<ul>
+  <li>vacmContextTable : Nom du contexte.</li>
+  <li>vacmSecurityToGroupTable : Modèle de sécurité, nom d'utilisateur, nom du groupe.</li>
+  <li>vacmAccessTable : Nom du groupe, nom du contexte, modèle de sécurité, niveau de sécurité.</li>
+  <li>vacmViewTreeFamilyTable : Vue, sous-arbre, masque, type.</li>
+</ul>
+
+<h2>Procédure de vérification de VACM</h2>
+
+<p>La vérification de VACM se fait en utilisant les tables de contexte, groupe, accès, et vue. Elle examine l'autorisation d'accès en fonction du contexte, du modèle de sécurité, du nom d'utilisateur, du niveau de sécurité, et de la vue.</p>
+
+
+
+<h2>LDAP</h2>
+
+<p>LDAP (Lightweight Directory Access Protocol) est une norme IETF ratifiée en 1996. Il a été conçu comme une version indépendante et plus légère que X.500 DAP, adaptée au protocole TCP/IP.</p>
+
+<h3>Modèles LDAP</h3>
+
+<p>LDAP spécifie plusieurs modèles :</p>
+<ul>
+  <li>Modèle d'information : type d'informations dans l'annuaire.</li>
+  <li>Modèle de nommage : organisation des informations avec un arbre d'entrées et des schémas d'attributs.</li>
+  <li>Modèle fonctionnel : accès à l'information.</li>
+  <li>Modèle de sécurité : protection des données et de l'accès.</li>
+  <li>Modèle de duplication : gestion de la répartition entre serveurs.</li>
+</ul>
+
+<h3>Sécurisation de l'annuaire</h3>
+
+<p>Trois aspects :</p>
+<ul>
+  <li>Sécuriser les échanges (TLS) : confidentialité.</li>
+  <li>Authentifier les utilisateurs (SASL) : authentification.</li>
+  <li>Limiter l'accès selon l'utilisateur (ACL) : contrôle d'accès.</li>
+</ul>
+
+<h2>TLS</h2>
+
+<p>Le TLS (Transport Layer Security) sécurise les communications en assurant confidentialité, authentification, et intégrité.</p>
+
+<h3>Algorithmes TLS 1.2</h3>
+
+<p>Authentification : RSA, DH-RSA, DHE-RSA, ECDH-RSA, ECDHE-RSA, DH-DSS, DHE-DSS, ECDH-ECDSA, ECDHE-ECDSA, PSK, SRP.</p>
+<p>Confidentialité : AES (GCM, CCM, CBC), Camellia (GCM, CBC), ARIA (GCM, CBC), SEED CBC.</p>
+<p>Intégrité : HMAC (MD5, SHA-1, SHA-2), AEAD.</p>
+
+<h3>Types de Handshake</h3>
+
+<p>Trois types :</p>
+<ul>
+  <li>Authentification du serveur seulement.</li>
+  <li>Authentification du serveur et du client.</li>
+  <li>Handshake abrégé (reprise de connexion).</li>
+</ul>
+
+<h3>Handshake avec RSA</h3>
+
+<p>Le Handshake comporte la négociation, l'authentification du serveur, et l'établissement de clé avec RSA.</p>
+<p>Le client envoie ClientHello, le serveur répond avec ServerHello, Certificate, ServerHelloDone. Le client répond avec ClientKeyExchange, et le Handshake se termine avec des messages ChangeCipherSpec et Finished.</p>
+
+<h3>Handshake RSA avec authentification du client</h3>
+
+<p>Ajoute une phase où le serveur demande et vérifie le certificat du client.</p>
+<p>Le Handshake inclut CertificateRequest, Certificate, ClientKeyExchange, CertificateVerify, et les étapes de vérification de clé.</p>
+
+
+<h2>Handshake avec DHE</h2>
+
+<p>Le Handshake avec DHE (Diffie-Hellman Ephemeral) commence avec le client envoyant un ClientHello, spécifiant le numéro de version, un nombre aléatoire, une liste de ciphersuites, et des méthodes de compression. Le serveur répond avec ServerHello, Certificate, ServerHelloDone, incluant le certificat du serveur, le nombre aléatoire du client chiffré avec la clé privée du serveur, et les paramètres DH chiffrés.</p>
+
+<p>Le client déchiffre son nombre aléatoire avec la clé privée du serveur, vérifiant ainsi que le serveur détient la clé privée correspondant à celle dans le certificat. Le client envoie ses paramètres DH, et le premaster secret est calculé. Le Handshake se termine avec des échanges de ChangeCipherSpec et Finished.</p>
+
+<h2>Pourquoi TLS1.3 ?</h2>
+
+<ul>
+  <li>Meilleure sécurité : suppression des ciphersuites non sécurisées.</li>
+  <li>Meilleure performance : handshake plus rapide avec 1 RTT, voire 0 RTT pour les sessions précédentes.</li>
+  <li>Garantie de Forward Secrecy : protection des clés avec la reprise de session.</li>
+  <li>Absence de compression : prévention de l'attaque BREACH.</li>
+</ul>
+
+<h2>TLS1.3 : moins de ciphersuites</h2>
+
+<p>TLS1.3 simplifie la négociation avec seulement 5 ciphersuites, garantissant Authenticated Encryption with Additional Data (AEAD) pour confidentialité, authenticité, et intégrité simultanées.</p>
+
+<h2>Protocoles d'échange de clé</h2>
+
+<p>Le mode d'échange de clé DHE et ECDHE assure la forward secrecy, protégeant les clés et utilisant de nouvelles clés pour chaque session. Les données d'une session ne sont pas compromises si une clé d'une autre session est compromise.</p>
+
+<h2>GSSAPI</h2>
+
+<p>GSSAPI (Generic Security Service Application Program Interface) repose sur le protocole Kerberos 5 et la cryptographie symétrique. Il fait appel à deux serveurs : un serveur d'authentification (AS) et un serveur d'allocation de tickets (TGS).</p>
+
+<h3>Rôle du serveur AS</h3>
+
+<p>Le client s'authentifie auprès du serveur AS, qui retourne une clé de session chiffrée avec la clé du client et un Ticket-Granting Ticket (TGT) chiffré avec la clé du serveur.</p>
+
+<h3>Rôle du serveur TGS</h3>
+
+<p>Le client envoie le TGT au serveur TGS avec un authentificateur chiffré. Le serveur TGS répond avec un ticket et une clé de session pour communiquer avec le serveur final.</p>
+
+
+<h2>Contrôle d’accès</h2>
+
+<p>Syntaxe des règles ACL avec OpenLDAP :</p>
+<pre>
+Access to &lt;Quoi&gt; by &lt;Qui&gt; &lt;Accès&gt; [&lt;Contrôle&gt;]
+</pre>
+
+<p><strong>Champ Quoi :</strong></p>
+<ul>
+  <li>"*" pour toutes les entrées de l'annuaire</li>
+  <li>dn="un dn donné"</li>
+  <li>filter="un filtre donné"</li>
+  <li>attrs="une liste d'attributs"</li>
+</ul>
+
+<p><strong>Champ Qui :</strong></p>
+<ul>
+  <li>"*" pour tous les utilisateurs</li>
+  <li>"Anonymous" pour utilisateurs non authentifiés</li>
+  <li>"users" pour utilisateurs authentifiés</li>
+  <li>"self" pour le propriétaire de l'entrée</li>
+  <li>dn="un dn donné" pour un utilisateur spécifique</li>
+  <li>group="un groupe donné" pour un groupe d'utilisateurs</li>
+</ul>
+
+<p><strong>Champ Accès :</strong></p>
+<ul>
+  <li>None, Disclosure, Auth, Compare, Search, Read, Write</li>
+  <li>Nature incrémentale des niveaux</li>
+</ul>
+
+<p><strong>Champ Contrôle :</strong></p>
+<ul>
+  <li>Stop (par défaut), Continue, Break</li>
+  <li>Parcours des règles : le serveur applique la première règle applicable et arrête sa lecture, sauf indication contraire dans Contrôle</li>
+</ul>
+
+<h2>Exemple ACL</h2>
+
+<p>Exemple :</p>
+<pre>
+access to attrs = homePhone
+by self write
+by users read
+by anonymous none
+</pre>
+
+<p>L'attribut homePhone est modifiable par le propriétaire, lisible par les utilisateurs authentifiés, et non accessible par les non authentifiés.</p>
+
+<h2>DNSSEC</h2>
+
+<p>Le Domain Name Service Security Extensions (DNSSEC) est une solution pour sécuriser le DNS en assurant l'intégrité et l'authenticité des réponses.</p>
+
+
+</body>
+</html>

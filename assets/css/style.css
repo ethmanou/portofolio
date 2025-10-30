@@ -1850,6 +1850,12 @@ footer .credits a {
   }
 }
 
+.LI-profile-badge {
+  margin: 0 auto;
+  display: inline-block;
+  text-align: center;
+}
+
 
 
 /* Conteneur navbar + langue */

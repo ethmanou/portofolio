@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Mohamedene ETHMANOU">
+  <meta name="robots" content="index">
+  <meta name="description" content="Étudiant en Cybersécurité, Développeur Full Stack et Administrateur Système & Réseau. Voici mon portfolio ainsi que mes compétences et mes projets !">
+  <title>Mohamedene ETHMANOU - Ingénieur en Réseau et Cybersécurité - Portfolio</title>
+  <link rel="canonical" href="index.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../opscenter/img/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../opscenter/img/logo.png">
+  <link rel="apple-touch-icon" href="../opscenter/img/logo.png">
+
+  <!-- Manifest -->
+  <link rel="manifest" href="../favicon/site.webmanifest">
+
+  <!-- CSS Vendor (tous en local) -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons-1/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="../assets/vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+  <!-- CSS Main -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+
+  <!-- Font local (si tu veux Barlow, télécharge et mets dans assets/fonts/) -->
+  <!-- Exemple : <link href="assets/fonts/barlow/barlow.css" rel="stylesheet"> -->
+
+  <style>
+    body {
+      color: #4e4e4e;
+      font-family: barlow, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+
+      background: url("../opscenter/img/eth_fond.png") no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed; /* par défaut (PC) */
+    }
+
+    /* Sur mobile (écrans <= 768px) */
+    @media (max-width: 768px) {
+      body {
+        background-attachment: scroll; /* supprime l’effet fixe */
+      }
+    }
+
+    .showcase {
+      position: relative;
+      width: 100%;
+      height: auto;
+    }
+
+    .showcase img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .showcase .text {
+      position: absolute;
+      top: 50%; /* centre verticalement */
+      left: 50%; /* centre horizontalement */
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 2em;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    /* Texte plus petit sur les téléphones */
+    @media only screen and (max-width: 600px) {
+      .showcase .text {
+        font-size: 1.2em;
+      }
+    }
+
+    /* Style par défaut pour PC */
+    h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 4rem;
+      text-align: center;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+      font-family: Arial, sans-serif;
+    }
+
+    /* Cacher le h1 sur mobile */
+    @media only screen and (max-width: 600px) {
+      h1 {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+<header id="header" class="fixed-top">
+<div class="container d-flex align-items-center justify-content-between">
+
+
+<h2 class="logo">
+<a href="index.html" rel="canonical">
+  <img src="../opscenter/img/logo.png" alt="Logo" class="logo">
+</a>
+</h2>
+
+<div class="header-right d-flex align-items-center">
+
+
+<nav id="navbar" class="navbar">
+  <span class="mobile-nav-toggle"><i class="fas fa-bars"></i></span>
+  <ul>
+    <li>
+      <a class="nav-link scrollto" href="#profil">Profile</a>
+    </li>
+    <li>
+      <a class="nav-link scrollto" href="#projets">Projects</a>
+    </li>
+    <li>
+      <a class="nav-link scrollto" href="#competences">Skills</a>
+    </li>
+    <li>
+      <a class="nav-link scrollto" href="#certificates">Certificates</a>
+    </li>
+    <li>
+      <a class="nav-link scrollto" href="#contact">Contact</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Language switch -->
+<div id="language-switch">
+        <a href="../fr/index.html" class="lang-btn">FR</a>
+        <span>|</span>
+        <a href="index.html" class="lang-btn">EN</a>
+</div>
+
+
+</div>
+</header>
+
+<div class="showcase">
+
+ <h2 class="title-a">
+  <span style="visibility: hidden;">xxxxxx</span> <!-- texte invisible -->
+  <span style="visibility: hidden;">xxxxxx</span> <!-- texte invisible -->
+  <span style="visibility: hidden;">xxxxxx</span> <!-- texte invisible -->
+  
+  </h2>
+  
+
+ <img src="../opscenter/img/ban.png" 
+     alt="Fond cybersécurité" 
+     class="fond">
+
+
+
+  <!-- Texte animé au-dessus de la photo -->
+  <div style="position:absolute; bottom:15%; left:50%; transform:translateX(-50%); color:white; text-shadow:0px 4px 10px rgba(0,0,0,0.8);">
+    <p style="font-size:1.8rem; font-weight:bold;">
+      <span class="typed" data-typed-items="Future network and cybersecurity engineer, passionate about system protection and technological innovation."></span>
+    </p>
+  </div>
+
+  <!-- Script typed.js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      let typedItems = document.querySelector('.typed').getAttribute('data-typed-items').split(',');
+      new Typed('.typed', {
+        strings: typedItems,
+        typeSpeed: 80,
+        backSpeed: 50,
+        backDelay: 1500,
+        loop: true
+      });
+    });
+  </script>
+</div>
+
+
+
+
+<section id="profil" style="padding: 60px 20px;" class="about-mf sect-pt4 route">
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+<div class="box-shadow-full">
+<div class="row">
+<div class="col-md-6">
+<div class="row">
+
+<div class="about-img text-center">
+  <!-- Image de profil principale -->
+ 
+  
+  <!-- Badge LinkedIn sous la photo -->
+  <div class="linkedin-badge-wrapper"
+       style="display: flex; justify-content: center; margin-top: 10px;">
+    <div class="badge-base LI-profile-badge" 
+        data-locale="en_US" 
+        data-size="large" 
+        data-theme="dark" 
+        data-type="VERTICAL" 
+        data-vanity="ethmanou" 
+        data-version="v1">
+        <a class="badge-base__link LI-simple-link" href="https://fr.linkedin.com/in/ethmanou?trk=profile-badge"></a>
+      </div>
+  </div>
+</div>
+
+<div class="about-info titre text-center">
+<p>
+<span class="title-s">Continuously studying cybersecurity <i class="bi bi-shield-fill"></i></span> </p>
+<p>
+<span class="title-s">Available from April 2026 <i class="bi bi-info-circle"></i> </p>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="profil pt-4 pt-md-0">
+  <div class="title-box-2">
+    <h5 class="title-left text-center">My Profile</h5>
+  </div>
+  <p class="lead text-center">
+    I’m a final-year engineering student at ISIMA, specializing in Networks and Cybersecurity.
+    My studies have given me a solid background in infrastructure monitoring, automation, and risk management — with a strong focus on securing IT systems.
+Passionate about cybersecurity, I enjoy tackling complex challenges and turning them into practical, secure, and efficient solutions.
+  </p>
+  <p class="lead text-center">
+    I’m currently looking for a final-year internship starting in April 2026, 
+    where I can apply my skills to help strengthen and optimize information systems in an innovative environment.
+  </p>
+</div>
+</div>
+</div>
+<hr>
+
+
+<div class="row">
+  <div class="col">
+    <p class="lead">
+      <h4>Professional Experience</h4>
+      <ul class="timeline">
+        <li>
+          <h5 class="company" style="margin-top: 10px; margin-left: 20px; display: flex; align-items: center;">
+            <a href="https://www.periscope.digital/" target="_blank" rel="nofollow" style="text-decoration: none; display: flex; align-items: center;">
+              <img src="../opscenter/img/periscope.png" alt="Periscope Creation" style="height: 30px; margin-right: 10px;">
+              Periscope Creation
+            </a>
+          </h5>
+
+          <p class="lead">03/2024 - 09/2024</p>
+          <h5 class="experience">Infrastructure & Information Systems Security Engineer (Intern)</h5>
+          <hr>
+          <p>
+            During my internship at <strong>Periscope Creation</strong>, I actively contributed to the administration, monitoring, and security of IT infrastructures. 
+            I implemented solutions for network monitoring, task automation, and asset management, enhancing overall system reliability and security.
+          </p>
+
+          <h5 class="experience_p" style="margin-top: 10px; margin-left: 20px;">🚀 Key Responsibilities</h5>
+          <ul class="competences-list">
+            <li>
+              <i class="fa-solid fa-shield-halved"></i>
+              <a target="_blank" rel="nofollow">
+                Monitoring & Security: Deployment and optimization of Wazuh (IDS), network log analysis (Syslog, WatchGuard), implementation of a secure authentication portal (Keycloak)
+              </a>
+            </li>
+            <li>
+              <i class="fa-brands fa-linux"></i>
+              <a target="_blank" rel="nofollow">
+                Automation & Infrastructure Management: Administration of Active Directory and JumpCloud, integration of assets via GLPI and FusionInventory, scripting with Bash, PowerShell, and Ansible
+              </a>
+            </li>
+            <li>
+              <i class="fa-solid fa-network-wired"></i>
+              <a target="_blank" rel="nofollow">
+                Network & Security: Advanced firewall configuration (WatchGuard, Livebox), VLAN network segmentation, access management with MFA and GPO
+              </a>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-lines"></i>
+              <a target="_blank" rel="nofollow">
+                Documentation & Compliance: Updating IT security procedures (PSSI, PCA), raising awareness through phishing simulations and user training
+              </a>
+            </li>
+          </ul>
+
+          <h5 class="experience_p" style="margin-top: 10px; margin-left: 20px;">🛠️ Skills & Tools Used</h5>
+          <ul>
+            <li>
+              <a href="https://wazuh.com/" target="_blank" rel="nofollow" class="competence-link">
+                <i class="fa-solid fa-shield-halved"></i> Monitoring & Security: Wazuh, Syslog, WatchGuard
+              </a>
+            </li>
+            <li>
+              <a href="https://learn.microsoft.com/fr-fr/power-platform/admin/wp-task-automation-powershell" target="_blank" rel="nofollow" class="competence-link">
+                <i class="fa-brands fa-linux"></i> Automation: Bash, PowerShell, Ansible
+              </a>
+            </li>
+            <li>
+              <a href="https://glpi-project.org/" target="_blank" rel="nofollow" class="competence-link">
+                <i class="fa-solid fa-server"></i> Infrastructure Management: GLPI, FusionInventory, JumpCloud
+              </a>
+            </li>
+            <li>
+              <a href="https://www.rancher.com/why-rancher" target="_blank" rel="nofollow" class="competence-link">
+                <i class="fa-solid fa-server"></i> Virtualization & Cloud: VMware, Docker, Rancher
+              </a>
+            </li>
+            <li>
+              <a href="https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccna/index.html#tabs-35d568e0ff-item-4bd7dc8124-tab" target="_blank" rel="nofollow" class="competence-link">
+                <i class="fa-solid fa-network-wired"></i> Network Security: IDS, VLAN, Firewalls, VPN, Active Directory
+              </a>
+            </li>
+            <li>
+              <a href="https://cyber.gouv.fr/publications/architecture-securisee-de-si" target="_blank" rel="nofollow" class="competence-link">
+                <i class="fa-solid fa-file-lines"></i> Documentation & Compliance: IT Security Policies (PSSI), Business Continuity Plans (PCA), Security Audits
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+  </div>
+
+  <div class="col">
+    <p class="lead">
+      <h4>Education</h4>
+      <ul class="timeline">
+        <li>
+          <h5 class="school" style="margin-top: 10px; margin-left: 20px; display: flex; align-items: center;">
+            <a href="https://www.isima.fr/formations/formation-ingenieur/f5-reseaux-et-securite-informatique/"  
+               target="_blank"  
+               rel="nofollow" 
+               style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+              <img src="../opscenter/img/isima.png" alt="ISIMA" style="height: 30px; margin-right: 10px;">
+              ISIMA – F5 Program: Networks & Cybersecurity
+            </a>
+          </h5>
+
+          <p class="lead">2022 – 2026</p>
+          <h5 class="experience">Engineering Degree in Networks & Cybersecurity</h5>
+          <hr>
+          <ul>
+            <li>SecNumEdu certified program by ANSSI, recognized for excellence in cybersecurity education.</li>
+            <li>Developed skills in <strong>computer networks</strong>: routing, protocols, virtualization, cloud computing, IoT.</li>
+            <li>Integrated cybersecurity training: cryptography, secure architecture, pentesting, forensics, risk management.</li>
+            <li>Tools & Equipment: Firewalls, VPN, Radius, Business Continuity Plans, IoT platforms, HackRF One, VoIP servers, Cisco hardware.</li>
+            <li>Software Development: object-oriented programming, CI/CD, mobile applications, agile methodologies.</li>
+            <li>Career paths: network engineer, security architect, CISO, cybersecurity specialist; highly sought-after in IT consulting firms, large corporations, and critical sectors.</li>
+          </ul>
+        </li>
+
+        <li>
+          <h5 class="school" style="margin-top: 10px; margin-left: 20px; display: flex; align-items: center;">
+            <a href="http://ipgei.mr/spip.php?article8" target="_blank" rel="nofollow" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+              <img src="../opscenter/img/ipgei.jpg" alt="IPEGI" style="height: 30px; margin-right: 10px;">
+              IPEGI – Preparatory Institute for Engineering Schools, Nouakchott
+            </a>
+          </h5>
+
+          <p class="lead">2020 – 2022</p>
+          <h5 class="experience_p" style="margin-top: 10px; margin-left: 20px;">Preparatory Classes for Engineering Schools</h5>
+          <hr>
+          <ul>
+            <li>General scientific training</li>
+            <li>Advanced mathematics, physics, chemistry, and engineering sciences</li>
+            <li>Introduction to computer science and algorithms</li>
+            <li>Intensive preparation for engineering school entrance exams</li>
+          </ul>
+        </li>
+
+        <li>
+          <h5 class="school" style="margin-top: 10px; margin-left: 20px;">
+            <a target="_blank" style="text-decoration: none;" rel="nofollow">
+              Lycée d’Excellence, Nouakchott
+            </a>
+          </h5>
+
+          <p class="lead">2020</p>
+          <h5 class="experience_p" style="margin-top: 10px; margin-left: 20px;">High School Diploma (Baccalauréat C – Mathematics & Physics)</h5>
+          <hr>
+          <ul>
+            <li>Honors: Très Bien (High Distinction)</li>
+            <li>Specialization: Mathematics & Physics</li>
+          </ul>
+        </li>
+      </ul>
+  </div>
+</div>
+
+
+<a href="https://flowcv.com/resume/c8ss3smknj7s" rel="noindex" class="btn btn-grad" target="_blank" style="text-decoration: none;">Télécharge mon CV en PDF
+<i class="bi bi-file-earmark-arrow-down-fill"></i>
+</a>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="projets" class="portfolio-mf sect-pt4 route">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="title-box text-center">
+        <h3 class="title-a">
+          My Projects
+        </h3>
+        <p class="subtitle-a" style="color: white; font-size: 26px;">
+          Here are some of my most recent projects.
+        </p>
+        <div class="line-mf"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+
+  
+<!-- Project 1: WAF ModSecurity -->
+<div class="col-md-4">
+  <div class="work-box">
+    <div class="work-img">
+      <img src="../opscenter/img/waf.png" alt="WAF ModSecurity - digital shield" class="img-fluid">
+    </div>
+    <div class="work-content">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2 class="w-title">WAF (ModSecurity)</h2>
+          <div class="w-more">
+            <span class="w-ctegory">Application Security</span> / <span class="w-date">02/2025</span>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="w-like"><a href="#" rel="follow"></a></div>
+        </div>
+      </div>
+
+      <h4 class="mt-2">Objectives</h4>
+      <p>Protect web applications against common attacks (injections, XSS, CSRF) while minimizing false positives and latency impact.</p>
+
+      <h4>Detailed Actions</h4>
+      <ul>
+        <li><strong>Architecture:</strong> Deployed ModSecurity as a reverse-proxy (Docker) in front of multiple application backends; integrated into the CI/CD pipeline for automated testing.</li>
+        <li><strong>Rules:</strong> Enabled OWASP CRS as a baseline, then added custom rules for business-specific cases (upload endpoint exclusions, fine-grained rules for REST APIs).</li>
+        <li><strong>Tuning:</strong> Collected and analyzed logs for 2 weeks in staging, created whitelists/exceptions, gradually switched to blocking mode.</li>
+        <li><strong>Monitoring:</strong> Centralized logs via Filebeat → ELK / Grafana for alert correlation and metrics (requests/blocked, false positive rates).</li>
+        <li><strong>Testing & Validation:</strong> Conducted black-box tests in staging (validation scenarios, non-exhaustive) and load tests to measure latency impact.</li>
+      </ul>
+
+      <h4>Results & Metrics</h4>
+      <ul>
+        <li>Confirmed blocking of injection and XSS attempts in the test environment.</li>
+        <li>Progressive reduction of false positives after tuning and targeted exceptions.</li>
+        <li>Implemented an operational dashboard showing processed requests, block rates, and average latency.</li>
+      </ul>
+
+      <h4>Skills & Tools Gained</h4>
+      <p>ModSecurity (reverse-proxy & integrated mode), OWASP CRS tuning, log parsing and correlation (ELK/Grafana), application testing and validation, DevOps culture (containerized deployment).</p>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Project 2: Active Directory Hardening -->
+<div class="col-md-4">
+  <div class="work-box">
+    <div class="work-img">
+      <img src="../opscenter/img/ad.png" alt="Secured Active Directory - directory tree" class="img-fluid">
+    </div>
+    <div class="work-content">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2 class="w-title">Active Directory</h2>
+          <div class="w-more">
+            <span class="w-ctegory">IAM & Systems</span> / <span class="w-date">11/2024</span>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="w-like"><a href="#" rel="follow"></a></div>
+        </div>
+      </div>
+
+      <h4 class="mt-2">Objectives</h4>
+      <p>Harden the AD infrastructure to reduce identity management attack surface and secure administrative access.</p>
+
+      <h4>Detailed Actions</h4>
+      <ul>
+        <li><strong>OU Design:</strong> Defined a clear organizational structure (OU per service/environment) to enable targeted GPOs and minimal privilege delegation.</li>
+        <li><strong>GPO & Hardening:</strong> Created standardized GPOs: password policies (length & complexity), account lockout, expiration, deactivation of inactive accounts; configured detailed logging.</li>
+        <li><strong>Privilege Management:</strong> Separated administrative accounts (break-glass), applied least privilege principle, controlled delegation through groups and roles.</li>
+        <li><strong>MFA & Access:</strong> Integrated MFA for sensitive access; reviewed services using service accounts.</li>
+        <li><strong>Monitoring:</strong> Centralized logs via Windows Event Forwarding → SIEM (event correlation, alerts on suspicious behaviors).</li>
+        <li><strong>Processes:</strong> Implemented a patching process and an incident response playbook for AD compromise scenarios.</li>
+      </ul>
+
+      <h4>Results & Metrics</h4>
+      <ul>
+        <li>Improved access governance: documented permissions and regular audits.</li>
+        <li>Faster anomaly detection via SIEM alerts on critical AD events.</li>
+        <li>Recovery procedures tested (AD object restore, critical account resets).</li>
+      </ul>
+
+      <h4>Skills & Tools Gained</h4>
+      <p>Active Directory (AD DS), GPO design & hardening, IAM, Windows Server administration, audit & SIEM, patch management procedures, incident response playbook.</p>
+    </div>
+  </div>
+</div>
+
+
+
+ <div class="col-md-4">
+  <div class="work-box">
+    <div class="work-img">
+      <img src="../opscenter/img/IOT.jpg" alt="Network migration & hardening - diagram" class="img-fluid">
+    </div>
+    <div class="work-content">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2 class="w-title">Network Migration & Hardening</h2>
+          <div class="w-more">
+            <span class="w-ctegory">Networking & Security</span> / <span class="w-date">09/2024</span>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="w-like"><a href="#" rel="follow"></a></div>
+        </div>
+      </div>
+
+      <h4 class="mt-2">Objectives</h4>
+      <p>
+      Redesign the network architecture to improve availability, performance, and security while minimizing downtime, as part of preparation for the <strong>CSNA</strong> certification, which I successfully obtained.
+      </p>
+
+      <h4>Detailed Actions</h4>
+      <ul>
+        <li><strong>Design:</strong> mapped network flows, implemented logical segmentation via VLANs (e.g., management VLAN, production VLAN, DMZ), and defined trust zones.</li>
+        <li><strong>Perimeter Security:</strong> deployed Stormshield firewall at the edge with deny-by-default policies, explicit rules for exposed services (HTTPS, restricted management SSH).</li>
+        <li><strong>Remote Access:</strong> set up site-to-site IPsec VPNs and user VPNs (encrypted tunnels, strong authentication policies, controlled split-tunnel).</li>
+        <li><strong>Routing & High Availability:</strong> configured OSPF for dynamic routing between sites and redundancy for critical links; implemented granular ACLs to filter inter-VLAN traffic.</li>
+        <li><strong>Testing & Cutover:</strong> phased migration procedure (staging → rollback plan → production), load testing, and monitoring during cutover.</li>
+      </ul>
+
+      <h4>Results & Metrics</h4>
+      <ul>
+        <li>Segmented network reducing lateral propagation of incidents.</li>
+        <li>Encrypted and reliable remote access via VPN; granular firewall rules applied.</li>
+        <li>Migration process documented and tested; monitoring in place for latency and availability.</li>
+      </ul>
+
+      <h4>Skills & Tools Gained</h4>
+      <p>
+        VLANs, OSPF, ACL design, IPsec VPN, Stormshield administration, resilient network architecture design, migration procedures & validation testing, and successful preparation for the <strong>CSNA</strong> certification.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+ <!-- Button to view all projects -->
+<div class="text-center mt-4"> 
+  <a class="btn btn-grad" href="projets.html" target="_blank" rel="follow">View All Projects</a> 
+</div>
+
+
+</div>
+
+</div>
+</section>
+<hr>
+
+
+
+<section id="competences" class="services-mf pt-5 route">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="title-box text-center">
+          <h3 class="title-a">Skills & Expertise</h3>
+          <div class="line-mf"></div>
+        </div>
+      </div>
+    </div> 
+    <div class="row"> 
+
+      <!-- Cybersecurity & Pentesting -->
+      <div class="col-md-4"> 
+        <div class="service-box"> 
+          <div class="service-ico"> 
+            <span class="ico-circle"> <i class="bi bi-shield-lock-fill"></i> </span> 
+          </div> 
+          <div class="service-content">  
+            <h2 class="s-title">CYBERSECURITY & PENTESTING</h2>  
+            <p class="s-description text-center"> 
+              Experienced in implementing and managing security solutions such as <strong>firewalls</strong> 
+              (<strong>Stormshield</strong>, <strong>WatchGuard</strong>), <strong>WAFs</strong> (ModSecurity), and <strong>IDS/IPS</strong> (Wazuh).  
+              Skilled in <strong>penetration testing</strong> using <strong>Metasploit</strong>, as well as <strong>Identity and Access Management (IAM)</strong>  
+              through <strong>Active Directory</strong>, <strong>JumpCloud</strong>, <strong>MFA</strong>, and <strong>SSO</strong>.  
+              Strong understanding of <strong>threats</strong> and <strong>protective measures</strong> to secure information systems.
+            </p>  
+          </div>
+        </div>  
+      </div> 
+
+      <!-- Networks & Systems -->
+      <div class="col-md-4"> 
+        <div class="service-box"> 
+          <div class="service-ico"> 
+            <span class="ico-circle"> <i class="bi bi-diagram-3-fill"></i> </span> 
+          </div> 
+         <div class="service-content">  
+            <h2 class="s-title">NETWORKS & SYSTEMS</h2>  
+            <p class="s-description text-center"> 
+              Proficient in network and system environments: <strong>VLAN</strong>, <strong>OSPF</strong>, <strong>ACL</strong>, <strong>RADIUS</strong>, <strong>DHCP</strong>, <strong>NAT/PAT</strong>, and <strong>IPsec VPN</strong>.  
+              Administration of <strong>Windows</strong> and <strong>Linux</strong> systems (clients/servers), including <strong>Active Directory</strong> integration and rights management.  
+              Experience with <strong>virtualization</strong> via <strong>VMware</strong> and <strong>Hyper-V</strong>, as well as deploying <strong>Cloud solutions</strong> on <strong>GCP</strong> and <strong>Azure</strong>. 
+            </p>  
+          </div>
+        </div>  
+      </div> 
+
+      <!-- DevOps & Automation -->
+      <div class="col-md-4"> 
+        <div class="service-box"> 
+          <div class="service-ico"> 
+            <span class="ico-circle"> <i class="bi bi-gear-fill"></i> </span> 
+          </div> 
+          <div class="service-content"> 
+            <h2 class="s-title">DEVOPS & AUTOMATION</h2> 
+            <p class="s-description text-center">
+              Experienced in <strong>containerization</strong> and <strong>automation</strong> using <strong>Docker</strong>, <strong>Ansible</strong>, and <strong>GitLab CI/CD</strong>.  
+              Developed scripts in <strong>Bash</strong>, <strong>Python</strong>, and <strong>PowerShell</strong> to automate <strong>administration</strong>, <strong>deployment</strong>, and <strong>security</strong> tasks.  
+              Capable of setting up <strong>CI/CD pipelines</strong> and optimizing <strong>DevOps processes</strong> to ensure <strong>agility</strong> and <strong>reliability</strong>.
+            </p> 
+          </div>
+        </div>  
+      </div> 
+
+      <!-- Databases -->
+      <div class="col-md-4"> 
+        <div class="service-box"> 
+          <div class="service-ico"> 
+            <span class="ico-circle"> <i class="bi bi-database-fill"></i> </span> 
+          </div> 
+          <div class="service-content"> 
+            <h2 class="s-title">DATABASES</h2> 
+            <p class="s-description text-center">
+              In-depth knowledge of <strong>relational</strong> and <strong>NoSQL databases</strong>: 
+              <strong>MySQL</strong>, <strong>PostgreSQL</strong>, <strong>MariaDB</strong>, and <strong>MongoDB</strong>.  
+              Experienced in <strong>data modeling</strong>, <strong>management</strong>, and <strong>security</strong>.  
+              Able to <strong>optimize performance</strong> and ensure <strong>high availability</strong> in critical environments.
+            </p> 
+          </div>
+        </div>  
+      </div> 
+
+      <!-- Programming -->
+      <div class="col-md-4"> 
+        <div class="service-box"> 
+          <div class="service-ico"> 
+            <span class="ico-circle"> <i class="bi bi-code-slash"></i> </span> 
+          </div> 
+          <div class="service-content">  
+              <h2 class="s-title">PROGRAMMING</h2>  
+              <p class="s-description text-center"> 
+                Strong skills in <strong>development</strong> with <strong>Python, C++, Bash, and PowerShell</strong>.  
+                Experienced in <strong>algorithm design</strong>, <strong>security script development</strong>,  
+                and <strong>process automation</strong>.  
+                Quick to <strong>adapt to new languages and technologies</strong> to meet diverse needs.
+              </p>  
+            </div> 
+        </div>  
+      </div> 
+
+      <!-- Monitoring & Supervision -->
+      <div class="col-md-4"> 
+        <div class="service-box"> 
+          <div class="service-ico"> 
+            <span class="ico-circle"> <i class="bi bi-graph-up"></i> </span> 
+          </div> 
+            <div class="service-content">  
+              <h2 class="s-title">MONITORING & SUPERVISION</h2>  
+              <p class="s-description text-center"> 
+                Experienced in implementing and using <strong>monitoring and supervision tools</strong>  
+                such as <strong>Nagios, Zabbix, Wazuh, and Syslog</strong>.  
+                Able to <strong>quickly detect incidents</strong>, <strong>prevent vulnerabilities</strong>, and  
+                <strong>ensure system and network availability</strong>. 
+              </p>  
+            </div> 
+        </div>  
+      </div> 
+
+    </div>
+  </div>
+</section>
+
+<hr>
+
+
+<section id="certificates" class="sect-pt4 route">
+  <div class="container">
+    <div class="title-box text-center">
+      <h3 class="title-a">My Certifications</h3>
+      <p class="subtitle-a" style="color: white; font-size: 20px;">
+        Here are some of the certifications I have earned.
+      </p>
+      <div class="line-mf"></div>
+    </div>
+
+    <div class="flex center gap20 wrap">
+
+      <!-- Certificate 1 -->
+      <div class="certif-card">
+        <h3>CCNA</h3>
+        <p>Cisco Certified Network Associate</p>
+      </div>
+
+      <!-- Certificate 2 -->
+      <div class="certif-card">
+        <h3>CSNA</h3>
+        <p>Stormshield Network Administrator</p>
+      </div>
+
+      <!-- Certificate 3 -->
+      <div class="certif-card">
+        <h3>Junior Pentester</h3>
+        <p>TryHackMe Certification</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section id="contact" class="paralax-mf footer-paralax sect-mt4 route">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="contact-mf">
+          <div class="box-shadow-full">
+            <div class="row">
+
+              <!-- Contact Section -->
+              <div class="col-md-6">
+                <div class="title-box-2">
+                  <style>
+                    .title-box-2 {
+                      margin-top: 30px;
+                    }
+
+                    .title-left {
+                      font-size: 1.3rem;
+                      margin-bottom: 10px;
+                      color: #222;
+                      font-weight: bold;
+                    }
+
+                    .contact-link {
+                      display: inline-block;
+                      font-size: 1rem;
+                      color: #0077ff;
+                      text-decoration: none;
+                      font-weight: 500;
+                      transition: all 0.3s ease;
+                    }
+
+                    .contact-link i {
+                      margin-right: 8px;
+                      color: #0056b3;
+                    }
+
+                    .contact-link:hover {
+                      color: #0056b3;
+                      text-decoration: underline;
+                      transform: translateX(4px);
+                    }
+                  </style>
+
+                  <h5 class="title-left">Get in Touch</h5>
+                  <p>
+                    <a href="mailto:mohamedene.ethmanou@etu.uca.fr" 
+                       aria-label="Send an email to Mohamedene" 
+                       class="contact-link">
+                      <i class="fas fa-envelope"></i> mohamedene.ethmanou@etu.uca.fr
+                    </a>
+                  </p>
+                  <p>
+                    Currently available for an <strong>internship starting April 2026</strong>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Additional Info -->
+              <div class="col-md-6">
+                <div class="title-box-2 pt-4 pt-md-0">
+                  <h5 class="title-left">Contact Details</h5>
+                </div>
+                <div class="more-info">
+                  <ul class="list-ico pt-2">
+                    <li><span class="bi bi-geo-alt"></span> Clermont-Ferrand & Surroundings</li> 
+                    <li>
+                      <a href="tel:+33748480126" class="call-link">
+                        <span class="bi bi-telephone-fill"></span> +33 7 48 48 01 26
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="title-box-2 pt-8 pt-md-2">
+                  <h5 class="title-left" style="padding-top: 30px;">Social Networks</h5>
+                </div>
+                <div class="more-info">
+                  <a class="btn btn-grad pt-2" href="https://www.linkedin.com/in/ethmanou/" target="_blank">
+                    Linkedin <i class="bi bi-linkedin"></i>
+                  </a> 
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="copyright-box">
+          <p class="copyright">&copy; Copyright <strong>Mohamedene ETHMANOU</strong> All rights reserved</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center active">
+            <i class="bi bi-arrow-up-short"></i>
+        </a>
+
+<script src="../assets/vendor/purecounter/purecounter_vanilla.js" type="2077f1266468b513c07b5de1-text/javascript"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" type="2077f1266468b513c07b5de1-text/javascript"></script>
+<script src="../assets/vendor/glightbox/js/glightbox.min.js" type="2077f1266468b513c07b5de1-text/javascript"></script>
+<script src="../assets/vendor/swiper/swiper-bundle.min.js" type="2077f1266468b513c07b5de1-text/javascript"></script>
+<script src="../assets/vendor/typed.js/typed.min.js" type="2077f1266468b513c07b5de1-text/javascript"></script>
+
+<script src="../assets/js/main.js" type="2077f1266468b513c07b5de1-text/javascript"></script>
+
+<script>
+  const toggle = document.querySelector('.mobile-nav-toggle');
+  const navbar = document.getElementById('navbar');
+  const navLinks = navbar.querySelectorAll('a'); // tous les liens du menu
+
+  // Ouvrir / fermer le menu quand on clique sur le bouton
+  toggle.addEventListener('click', () => {
+    navbar.classList.toggle('navbar-mobile');
+  });
+
+  // Fermer le menu quand on clique sur un lien
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navbar.classList.remove('navbar-mobile');
+    });
+  });
+</script>
+
+<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+
+
+</body>
+
+
+</html>
